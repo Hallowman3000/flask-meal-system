@@ -1,0 +1,220 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+header {
+  background-color: azure; /* Background color */
+  padding: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
+}
+
+.logo-container {
+  display: flex;
+  text-align: center;
+  align-items: center;
+}
+
+.logo {
+  width: 50px; /* Adjust the logo size as needed */
+  align-items: center;
+  margin-right: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+  margin-right: 20px;   
+
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  display: flex;
+}
+
+.social-links a {
+  margin-right: 10px;
+}
+
+.social-links img {
+  width: 20px; /* Adjust the social icon size as needed */
+}
+
+.login-btn, .order-btn {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.login-btn:hover, .order-btn:hover {
+  background-color: #555;
+}
+
+/* Hero Section Styles */
+.hero {
+    background-image: url('Screenshot (17).png');
+    background-size: cover;
+    background-position: center; /* Center the background image */
+    color: white;
+    padding: 50px 0;
+    text-align: center;
+    height: 100vh; /* Set the height to full viewport height */
+    display: flex; /* Use flexbox for vertical centering */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+/* Sironi Restaurant Specials Section */
+.sironi-specials {
+  background-color: white;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.sironi-specials-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.sironi-special {
+  text-align: center;
+  margin: 10px;
+}
+
+.sironi-special img {
+  width: 100%;
+  height: auto;
+}
+
+/* Paul's Café Specials Section */
+.pauls-cafe-specials {
+  background-color: azure;
+  padding: 40px 0;
+  text-align: center;
+}
+
+.pauls-cafe-specials-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.pauls-cafe-special-desc,
+.pauls-cafe-special-img {
+  flex: 0 0 50%;
+  margin: 10px;
+  text-align: center;
+}
+
+.pauls-cafe-special-img img {
+  width: 100%;
+  height: auto;
+}
+
+/* Shared Styles */
+.view-menu-btn {
+  margin-top: 40px;
+  padding: 15px 30px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.view-menu-btn:hover {
+  background-color: #00FF00;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.menu-item {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  text-align: center;
+  background-color: #f8f8f8; /* Add a light background color */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+.menu-item img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.menu-item h3 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.menu-item .price {
+  font-size: 16px;
+  color: #666;
+}
+
+.menu-item .availability {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.menu-item textarea {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+.menu-item button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.menu-item button:hover {
+  background-color: #0062cc;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-logo img {
+    height: 50px;
+}
