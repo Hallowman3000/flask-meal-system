@@ -1,25 +1,82 @@
-// Function to add item to cart
-function addToCart(itemName, itemPrice) {
-    // Get the special request if available
-    const specialRequests = document.querySelector(`.menu-item h3:contains('${itemName}')`)?.parentNode.querySelector("textarea")?.value || "";
+const CART_KEY = "mealhub_cart";
 
-    // Create the item object
-    const item = {
-        name: itemName,
-        price: itemPrice,
-        specialRequests: specialRequests
-    };
-
-    // Retrieve cart or initialize it if not present
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Add the item to the cart
-    cart.push(item);
-
-    // Save updated cart to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    // Notify and open cart
-    alert(`${itemName} added to cart!`);
-    window.open("cart.html", "_blank");
+function getCart() {
+  try {
+    return JSON.parse(localStorage.getItem(CART_KEY)) || [];
+  } catch {
+    return [];
+  }
 }
+
+function saveCart(cart) {
+  localStorage.setItem(CART_KEY, JSON.stringify(cart));
+}
+
+function addToCart(name, price, specialRequests = "") {
+  const cart = getCart();
+  cart.push({
+    id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
+    name,
+    price: Number(price),
+    specialRequests
+  });
+  saveCart(cart);
+}
+
+function addToCartFromCard(button) {
+  const card = button.closest(".menu-item");
+  const name = card.dataset.name;
+  const price = card.dataset.price;
+  const specialRequests = card.querySelector("textarea")?.value.trim() || "";
+
+  addToCart(name, price, specialRequests);
+  button.textContent = "Added ✓";
+  button.disabled = true;
+  setTimeout(() => {
+    button.textContent = "Add to cart";
+    button.disabled = false;
+  }, 800);
+}
+
+function removeCartItem(id) {
+  const updated = getCart().filter(item => item.id !== id);
+  saveCart(updated);
+  renderCartItems();
+}
+
+function clearCart() {
+  saveCart([]);
+  renderCartItems();
+}
+
+function renderCartItems() {
+  const cartContainer = document.getElementById("cart-items");
+  const totalNode = document.getElementById("cart-total");
+
+  if (!cartContainer || !totalNode) {
+    return;
+  }
+
+  const cart = getCart();
+  if (cart.length === 0) {
+    cartContainer.innerHTML = '<div class="card" style="padding:1rem;">Your cart is empty.</div>';
+    totalNode.textContent = "Total: KES 0";
+    return;
+  }
+
+  cartContainer.innerHTML = cart.map(item => `
+    <article class="cart-item">
+      <div>
+        <strong>${item.name}</strong><br>
+        <span>KES ${item.price}</span>
+        ${item.specialRequests ? `<p style="margin:.45rem 0 0;color:#6b7280;">Request: ${item.specialRequests}</p>` : ""}
+      </div>
+      <button class="btn" onclick="removeCartItem('${item.id}')">Remove</button>
+    </article>
+  `).join("");
+
+  const total = cart.reduce((sum, item) => sum + Number(item.price || 0), 0);
+  totalNode.textContent = `Total: KES ${total}`;
+}
+
+renderCartItems();

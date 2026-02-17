@@ -1,123 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-
-    <title>Dynamic Menu</title>
-    <link rel="stylesheet" href="styles.css">
-</head>   
-
-<body>
-    <header>
-        <h1>Sironi Menu</h1>
-    </header>
-
-    <section class="menu-section">
-        <div id="menu-items">
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="pasta and red sauce.jpg" alt="Dish 1">
-                    <div class="menu-details">
-                        <h3>Pasta and red sauce</h3>
-                        <p class="price">Kes 300</p>
-                        <p class="availability" style="color: green;">Available</p>
-                        <textarea placeholder="Special requests (e.g., extra cheese)"></textarea>
-                        <button onclick="addToCart('Pasta and red sauce', 'Kes 300')">Order Now</button>
-                    </div>
-                </div>
-                 </div>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="fried.jpg" alt="Dish 1">
-                    <div class="menu-details">
-                        <h3>ion</h3>
-                        <p class="price">Kes 150</p>
-                        <p class="availability" style="color: green;">Available</p>
-                        <textarea placeholder="Special requests (e.g., extra cheese)"></textarea>
-                        <button onclick="window.location.href='cart.html'" target="_blank">Order Now</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-grid">
-                <div class="menu-item">
-                    <img src="fries.jpg" alt="Dish 1">
-                    <div class="menu-details">
-                        <h3>fries</h3>
-                        <p class="price">Kes 150</p>
-                        <p class="availability" style="color: red;">Available</p>
-                        <textarea placeholder="Special requests (e.g., extra cheese)"></textarea>
-                        <button onclick="window.location.href='menu.html'" target="_blank">Order Now</button>
-                    </div>
-                </div>
-                 </div>
-    </section>
-
-    <script src="menu.js"></script>
-    <script src="cart.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menu</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Hub Menu</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Paul's caffe Menu</h1>
-    </header>
-    
-    <section class="menu-section">
-        <!-- Menu Item 1 -->
-         <div class="menu-grid">
-        <div class="menu-item">
-            <img src="fries.jpg" alt="Dish 1">
-            <div class="menu-details">
-                <h3>fries</h3>
-                <p class="price">Kes 150</p>
-                <p class="availability" style="color: green;">Available</p>
-                <textarea placeholder="Special requests (e.g., extra cheese)"></textarea>
-                <button onclick="addToCart('fries kes 150')"><a href="cart.html" target="_blank">Order Now</a></button>
-            </div>
-        </div>
-         </div>
-        
-        <!-- Menu Item 2 -->
-        <div class="menu-grid">
-        <div class="menu-item">
-            <img src="fried noodles.jpg" alt="Dish 2">
-            <div class="menu-details">
-                <h3>Fried Noodles</h3>
-                <p class="price">Kes 300</p>
-                <p class="availability" style="color: red;">Not Available</p>
-                <textarea placeholder="Special requests (e.g., no onions)"></textarea>
-                <button onclick="addToCart('Fried Noodles')" disabled>Order Now</button>
-            </div>
-        </div>
-        </div>
-        
-        <!-- Menu Item 3 -->
-        <div class="menu-grid">
-        <div class="menu-item">
-            <img src="fried rice.jpg" alt="Dish 3">
-            <div class="menu-details">
-                <h3>Herb-Fried Rice</h3>
-                <p class="price">Kes 200</p>
-                <p class="availability" style="color: green;">Available</p>
-                <textarea placeholder="Special requests (e.g., gluten-free)"></textarea>
-                <button onclick="addToCart('Fried Rice kes 150')"></button><a href="cart.html"></a>>Order Now</button>
-            </div>
-        </div>
-        </div>
-    </section>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <img src="Screenshot (21).png" alt="Meal Hub logo">
+        <span>Meal Hub</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="cart.html">Cart</a>
+      </nav>
+    </div>
+  </header>
 
-    <script src="script.js"></script>
-    <script src="cart.js"></script>
+  <main class="section">
+    <div class="container">
+      <h1 class="section-title">Menu</h1>
+      <p class="section-subtitle">Add available meals to your cart and include any special requests.</p>
+
+      <section class="card-grid" aria-label="menu items">
+        <article class="card menu-item" data-name="Pasta and red sauce" data-price="300" data-currency="KES" data-available="true">
+          <img src="pasta and red sauce.jpg" alt="Pasta and red sauce">
+          <div class="card-content">
+            <h3>Pasta and red sauce</h3>
+            <div class="price-row">
+              <span class="price">KES 300</span>
+              <span class="status available">Available</span>
+            </div>
+            <textarea placeholder="Special requests (e.g., extra cheese)"></textarea>
+            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="card menu-item" data-name="Fried chicken" data-price="450" data-currency="KES" data-available="true">
+          <img src="fried.jpg" alt="Fried chicken">
+          <div class="card-content">
+            <h3>Fried chicken</h3>
+            <div class="price-row">
+              <span class="price">KES 450</span>
+              <span class="status available">Available</span>
+            </div>
+            <textarea placeholder="Special requests (e.g., extra spicy)"></textarea>
+            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="card menu-item" data-name="Fries" data-price="150" data-currency="KES" data-available="true">
+          <img src="fries.jpg" alt="Fries">
+          <div class="card-content">
+            <h3>Fries</h3>
+            <div class="price-row">
+              <span class="price">KES 150</span>
+              <span class="status available">Available</span>
+            </div>
+            <textarea placeholder="Special requests (e.g., less salt)"></textarea>
+            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to cart</button>
+          </div>
+        </article>
+
+        <article class="card menu-item" data-name="Fried noodles" data-price="300" data-currency="KES" data-available="false">
+          <img src="fried noodles.jpg" alt="Fried noodles">
+          <div class="card-content">
+            <h3>Fried noodles</h3>
+            <div class="price-row">
+              <span class="price">KES 300</span>
+              <span class="status unavailable">Not available</span>
+            </div>
+            <textarea placeholder="Special requests (e.g., no onions)"></textarea>
+            <button class="btn" disabled>Unavailable</button>
+          </div>
+        </article>
+
+        <article class="card menu-item" data-name="Herb fried rice" data-price="200" data-currency="KES" data-available="true">
+          <img src="fried rice.jpg" alt="Herb fried rice">
+          <div class="card-content">
+            <h3>Herb fried rice</h3>
+            <div class="price-row">
+              <span class="price">KES 200</span>
+              <span class="status available">Available</span>
+            </div>
+            <textarea placeholder="Special requests (e.g., gluten-free)"></textarea>
+            <button class="btn btn-primary" onclick="addToCartFromCard(this)">Add to cart</button>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <script src="cart.js"></script>
 </body>
 </html>

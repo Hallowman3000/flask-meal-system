@@ -1,26 +1,33 @@
-<!-- admin.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Admin Panel - Add Item</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Meal Hub</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Add a New Menu Item</h1>
-    <form id="addItemForm">
-        <label for="itemName">Item Name:</label>
-        <input type="text" id="itemName" name="itemName" required>
+  <main>
+    <section class="form-card">
+      <h2>Add Menu Item</h2>
+      <form id="addItemForm">
+        <div class="form-group">
+          <label for="itemName">Item Name</label>
+          <input type="text" id="itemName" name="itemName" required>
+        </div>
+        <div class="form-group">
+          <label for="price">Price (KES)</label>
+          <input type="number" id="price" name="price" min="1" required>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" name="description" required></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Add Item</button>
+      </form>
+    </section>
+  </main>
 
-        <label for="price">Price:</label>
-        <input type="number" id="price" name="price" required>
-
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea>
-
-        <button type="submit">Add Item</button>
-    </form>
-
-    <script src="admin.js"></script>
+  <script src="admin.js"></script>
 </body>
 </html>

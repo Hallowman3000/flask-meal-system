@@ -1,89 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Hub</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meal Hub</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
-        <div class="logo-container">
-            <img src="Screenshot (21).png" alt="Logo" class="logo">
-            <h1>Meal Hub</h1>
+  <header class="site-header">
+    <div class="container navbar">
+      <a class="brand" href="index.html">
+        <img src="Screenshot (21).png" alt="Meal Hub logo">
+        <span>Meal Hub</span>
+      </a>
+      <nav class="nav-links">
+        <a href="menu.html">Menu</a>
+        <a href="#specials">Specials</a>
+        <a href="#contact">Contact</a>
+        <button class="btn btn-secondary" onclick="location.href='login.html'">Login</button>
+        <div class="social-links" aria-label="social media links">
+          <a href="#"><img src="twitter.png" alt="Twitter"></a>
+          <a href="#"><img src="instagram.png" alt="Instagram"></a>
+          <a href="#"><img src="facebook.png" alt="Facebook"></a>
         </div>
-        <nav>
-            <a href='menu.html'" target="_blank" >Menu</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <div class="social-links">
-                <a href="#"><img src="twitter.png" alt="Twitter"></a>
-                <a href="#"><img src="instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="facebook.png" alt="Facebook"></a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div>
+      <h1>Fresh meals, fast delivery, better food vibes.</h1>
+      <p>Explore curated dishes from your favorite local kitchens and order in seconds.</p>
+      <button class="btn btn-primary" onclick="location.href='menu.html'">Order Online</button>
+    </div>
+  </section>
+
+  <main>
+    <section id="specials" class="section">
+      <div class="container">
+        <h2 class="section-title">Today’s Specials</h2>
+        <p class="section-subtitle">Rotating dishes from Sironi Restaurant and Paul’s Café.</p>
+        <div class="card-grid">
+          <article class="card">
+            <img src="Screenshot (18).png" alt="Pasta with sauce">
+            <div class="card-content">
+              <h3>Pasta with Homemade Sauce</h3>
+              <p>Rich tomato base, fresh herbs, and handmade pasta.</p>
             </div>
-            <button onclick="location.href='login.html'" class="login-btn">Login</button>
-            </nav>
-    </header>
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Collaborating with fellow food enthusiasts: Explore featured kitchens for fresh ideas and inspiration.</h2>
-        <button onclick="window.location.href='menu.html'" target="_blank" class="order-btn">Order Online</button>
+          </article>
+          <article class="card">
+            <img src="Screenshot (14).png" alt="Grilled salmon">
+            <div class="card-content">
+              <h3>Grilled Herb Salmon</h3>
+              <p>Lightly grilled and served with citrus-seasoned vegetables.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="Screenshot (16).png" alt="Classic biriyani rice">
+            <div class="card-content">
+              <h3>Classic Biriyani Rice</h3>
+              <p>Aromatic spices, slow-cooked rice, and bold flavor.</p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="Screenshot (19).png" alt="Coffee cup">
+            <div class="card-content">
+              <h3>Barista Coffee</h3>
+              <p>Paul’s signature roast brewed to a smooth finish.</p>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
-    <section class="sironi-specials">
-        <h2>Daily Specials at Sironi Restaurant</h2>
-        <div class="sironi-specials-container">
-            <div class="sironi-special">
-                <img src="Screenshot (18).png" alt="Special Dish 1">
-                <p>Delicious pasta with homemade sauce.</p>
-            </div>
-            <div class="sironi-special">
-                <img src="Screenshot (14).png" alt="Special Dish 2">
-                <p>Grilled salmon with fresh herbs.</p>
-            </div>
-            <div class="sironi-special">
-                <img src="Screenshot (16).png" alt="Special Dish 3">
-                <p>Classic Biriyani Rice.</p>
-            </div>
-        </div>
-        <button onclick="window.location.href='menu.html'" target="_blank" class="view-menu-btn">View Menu</button>
-    </section>
-    
-    <section class="pauls-cafe-specials">
-        <h2>Daily Specials at Paul's Café</h2>
-        <div class="pauls-cafe-specials-container">
-            <div class="pauls-cafe-special-desc">Coffee brewed to perfection.</div>
-            <div class="pauls-cafe-special-img"><img src="Screenshot (19).png" alt="Coffee"></div>
-            <div class="pauls-cafe-special-desc">Freshly baked croissants.</div>
-            <div class="pauls-cafe-special-img"><img src="Screenshot (20).png" alt="Pastry"></div>
-            
-        </div>
-        <button onclick="window.location.href='menu.html'" target="_blank" class="view-menu-btn">View Menu</button>
-    </section>
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-logo">
-          <img src="Screenshot (21).png" alt="Logo">
-          <p>Your Restaurant Name</p>
-        </div>
-        <nav class="footer-nav">
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Menu</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="footer-social">
-          <a href=""><img src="twitter.png" alt="Twitter"></a>
-          <a href=""><img src="instagram.png" alt="Instagram"></a>
-          <a href=""><img src="facebook.png" alt="Facebook"></a>   
-      
-        </div>
-        <div class="footer-copyright">
-          &copy; 2023 Your Restaurant Name. All Rights Reserved.
-        </div>
-      </footer>
-    <script src="scripts.js"></script>
+  </main>
+
+  <footer id="contact" class="footer">
+    <div class="container">
+      <strong>Meal Hub</strong> • hello@mealhub.local • +254 700 000 000
+    </div>
+  </footer>
 </body>
 </html>

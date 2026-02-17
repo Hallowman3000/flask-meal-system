@@ -1,24 +1,30 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+document.getElementById("loginForm")?.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+  const message = document.getElementById("loginMessage");
 
-  fetch('http://localhost:5004/login', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
+  if (!username || !password) {
+    message.textContent = "Please fill in all fields.";
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:5004/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password })
-  })
-  .then(response => response.json())
-  .then(data => {
-      if (data.success) {
-          alert("Login successful!");
-          window.location.href = "home.html"; // Redirect after successful login
-      } else {
-          alert("Login failed: " + data.message);
-      }
-  })
-  .catch(error => console.error('Error:', error));
+    });
+
+    const data = await response.json();
+    if (data.success) {
+      message.textContent = "Login successful. Redirecting...";
+      setTimeout(() => (window.location.href = "index.html"), 700);
+    } else {
+      message.textContent = `Login failed: ${data.message || "unknown error"}`;
+    }
+  } catch {
+    message.textContent = "Service unavailable. Please try again later.";
+  }
 });
