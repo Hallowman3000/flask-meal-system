@@ -1,104 +1,61 @@
-function checkout() {
-    window.location.href = 'checkout.html';
-}
-// Sironi Specials
-const sironiSpecials = [
-    {
-        image: "dish1.jpg",
-        description: "Delicious pasta with homemade sauce."
-    },
-    {
-        image: "dish2.jpg",
-        description: "Grilled salmon with fresh herbs."
-    },
-    {
-        image: "dish3.jpg",
-        description: "Classic Biriyani Rice."
-    }
+const fallbackHighlights = [
+  {
+    kitchen: 'Sironi Restaurant',
+    dish: 'Classic Biryani Rice',
+    description: 'Aromatic basmati rice with warm spices and slow-cooked flavor.',
+    image: 'Screenshot (16).png'
+  },
+  {
+    kitchen: "Paul's Café",
+    dish: 'Freshly Baked Croissants',
+    description: 'Buttery, flaky pastries baked daily and served warm.',
+    image: 'Screenshot (20).png'
+  },
+  {
+    kitchen: 'Sironi Restaurant',
+    dish: 'Homemade Red Sauce Pasta',
+    description: 'Comfort pasta with rich tomato sauce and garden herbs.',
+    image: 'Screenshot (18).png'
+  }
 ];
 
-const sironiContainer = document.querySelector(".sironi-specials .specials-container");
+function renderHighlights(highlights) {
+  const grid = document.getElementById('highlight-grid');
+  if (!grid) {
+    return;
+  }
 
-sironiSpecials.forEach(special => {
-    const specialElement = document.createElement("div");
-    specialElement.classList.add("special");
-    specialElement.innerHTML = `
-        <img src="${special.image}" alt="${special.description}">
-        <p>${special.description}</p>
+  grid.innerHTML = '';
+  highlights.forEach((item) => {
+    const card = document.createElement('article');
+    card.className = 'highlight-card';
+    card.innerHTML = `
+      <img src="${item.image}" alt="${item.dish}">
+      <div class="card-body">
+        <h4>${item.dish}</h4>
+        <p><strong>${item.kitchen}</strong></p>
+        <p>${item.description}</p>
+      </div>
     `;
-    sironiContainer.appendChild(specialElement);
-});
-
-// Paul's Cafe Specials
-const paulsCafeSpecials = [
-    {
-        image: "coffee.jpg",
-        description: "Coffee brewed to perfection."
-    },
-    {
-        image: "croissant.jpg",
-        description: "Freshly baked croissants."
-    }
-];
-
-const paulsCafeContainer = document.querySelector(".pauls-cafe-specials .cafe-specials-container");
-
-paulsCafeSpecials.forEach(specialItem => {
-    const specialItemElement = document.createElement("div");
-    specialItemElement.classList.add("special-item");
-    specialItemElement.innerHTML = `
-        <img src="${specialItem.image}" alt="${specialItem.description}">
-        <p>${specialItem.description}</p>
-    `;
-    paulsCafeContainer.appendChild(specialItemElement);
-});
-document.getElementById('loginForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting the default way
-
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
-    const loginMessage = document.getElementById('loginMessage');
-
-    // Perform basic validation (e.g., check if fields are not empty)
-    if (email && password) {
-        // Simulate login process
-        loginMessage.innerText = 'Logging in...';
-
-        setTimeout(() => {
-            // Simulate successful login
-            loginMessage.innerText = 'Login successful!';
-            loginMessage.style.color = 'green';
-            
-            // Redirect to another page after successful login
-            window.location.href = 'homepage.html';
-        }, 2000);
-    } else {
-        loginMessage.innerText = 'Please fill in all fields.';
-        loginMessage.style.color = 'red';
-    }
-});
-// Function to add item to cart
-function addToCart(itemName, itemPrice) {
-    // Get the special request if available
-    const specialRequests = document.querySelector(`.menu-item h3:contains('${itemName}')`)?.parentNode.querySelector("textarea")?.value || "";
-
-    // Create the item object
-    const item = {
-        name: itemName,
-        price: itemPrice,
-        specialRequests: specialRequests
-    };
-
-    // Retrieve cart or initialize it if not present
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-    // Add the item to the cart
-    cart.push(item);
-
-    // Save updated cart to localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
-
-    // Notify and open cart
-    alert(`${itemName} added to cart!`);
-    window.open("cart.html", "_blank");
+    grid.appendChild(card);
+  });
 }
+
+async function loadHighlights() {
+  try {
+    const response = await fetch('http://localhost:5001/highlights');
+    if (!response.ok) {
+      throw new Error('Could not load highlights from backend');
+    }
+    const data = await response.json();
+    if (Array.isArray(data) && data.length > 0) {
+      renderHighlights(data);
+      return;
+    }
+    renderHighlights(fallbackHighlights);
+  } catch (error) {
+    renderHighlights(fallbackHighlights);
+  }
+}
+
+document.addEventListener('DOMContentLoaded', loadHighlights);

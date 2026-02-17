@@ -3,87 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meal Hub</title>
+    <title>Meal Hub | Fresh food from local kitchens</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Header Section -->
-    <header>
+    <header class="site-header">
         <div class="logo-container">
-            <img src="Screenshot (21).png" alt="Logo" class="logo">
-            <h1>Meal Hub</h1>
+            <img src="Screenshot (21).png" alt="Meal Hub logo" class="logo">
+            <div>
+                <p class="brand-eyebrow">Order smarter</p>
+                <h1>Meal Hub</h1>
+            </div>
         </div>
-        <nav>
-            <a href='menu.html'" target="_blank" >Menu</a>
-            <a href="#about">About</a>
+        <nav class="top-nav">
+            <a href="index.html">Home</a>
+            <a href="menu.html">Menu</a>
+            <a href="#kitchens">Kitchens</a>
             <a href="#contact">Contact</a>
-            <div class="social-links">
-                <a href="#"><img src="twitter.png" alt="Twitter"></a>
-                <a href="#"><img src="instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="facebook.png" alt="Facebook"></a>
-            </div>
             <button onclick="location.href='login.html'" class="login-btn">Login</button>
-            </nav>
-    </header>
-    <!-- Hero Section -->
-    <section class="hero">
-        <h2>Collaborating with fellow food enthusiasts: Explore featured kitchens for fresh ideas and inspiration.</h2>
-        <button onclick="window.location.href='menu.html'" target="_blank" class="order-btn">Order Online</button>
-    </section>
-    <section class="sironi-specials">
-        <h2>Daily Specials at Sironi Restaurant</h2>
-        <div class="sironi-specials-container">
-            <div class="sironi-special">
-                <img src="Screenshot (18).png" alt="Special Dish 1">
-                <p>Delicious pasta with homemade sauce.</p>
-            </div>
-            <div class="sironi-special">
-                <img src="Screenshot (14).png" alt="Special Dish 2">
-                <p>Grilled salmon with fresh herbs.</p>
-            </div>
-            <div class="sironi-special">
-                <img src="Screenshot (16).png" alt="Special Dish 3">
-                <p>Classic Biriyani Rice.</p>
-            </div>
-        </div>
-        <button onclick="window.location.href='menu.html'" target="_blank" class="view-menu-btn">View Menu</button>
-    </section>
-    
-    <section class="pauls-cafe-specials">
-        <h2>Daily Specials at Paul's Café</h2>
-        <div class="pauls-cafe-specials-container">
-            <div class="pauls-cafe-special-desc">Coffee brewed to perfection.</div>
-            <div class="pauls-cafe-special-img"><img src="Screenshot (19).png" alt="Coffee"></div>
-            <div class="pauls-cafe-special-desc">Freshly baked croissants.</div>
-            <div class="pauls-cafe-special-img"><img src="Screenshot (20).png" alt="Pastry"></div>
-            
-        </div>
-        <button onclick="window.location.href='menu.html'" target="_blank" class="view-menu-btn">View Menu</button>
-    </section>
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-logo">
-          <img src="Screenshot (21).png" alt="Logo">
-          <p>Your Restaurant Name</p>
-        </div>
-        <nav class="footer-nav">
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Menu</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact</a></li>
-          </ul>
         </nav>
-        <div class="footer-social">
-          <a href=""><img src="twitter.png" alt="Twitter"></a>
-          <a href=""><img src="instagram.png" alt="Instagram"></a>
-          <a href=""><img src="facebook.png" alt="Facebook"></a>   
-      
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <p class="hero-kicker">Top-rated dishes delivered fast</p>
+                <h2>Discover meals you'll actually look forward to.</h2>
+                <p>Browse trusted kitchens, customize every order, and checkout in seconds.</p>
+                <div class="hero-actions">
+                    <button onclick="window.location.href='menu.html'" class="order-btn">Order online</button>
+                    <button onclick="window.location.href='menu.html'" class="ghost-btn">View full menu</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats-strip" aria-label="Meal Hub stats">
+            <article><strong>50+</strong><span>Popular dishes</span></article>
+            <article><strong>12</strong><span>Partner kitchens</span></article>
+            <article><strong>4.8/5</strong><span>Average rating</span></article>
+        </section>
+
+        <section id="kitchens" class="featured-section">
+            <div class="section-heading">
+                <h3>Featured kitchen highlights</h3>
+                <p>Updated from the backend to keep your homepage fresh.</p>
+            </div>
+            <div id="highlight-grid" class="card-grid" aria-live="polite"></div>
+        </section>
+    </main>
+
+    <footer id="contact" class="site-footer">
+        <div>
+            <img src="Screenshot (21).png" alt="Meal Hub logo" class="footer-logo">
+            <p>Meal Hub • Modern food ordering for busy days.</p>
         </div>
-        <div class="footer-copyright">
-          &copy; 2023 Your Restaurant Name. All Rights Reserved.
+        <div class="social-links">
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
         </div>
-      </footer>
-    <script src="scripts.js"></script>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
