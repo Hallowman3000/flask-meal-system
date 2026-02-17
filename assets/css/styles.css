@@ -127,6 +127,88 @@ footer {
   font-size: clamp(1.2rem, 2.6vw, 1.8rem);
 }
 
+.hero-carousel {
+  padding: 0;
+  overflow: hidden;
+}
+
+.hero-slides {
+  position: relative;
+  min-height: 360px;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.8s ease;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-slide-content {
+  position: absolute;
+  inset-inline: 1rem;
+  bottom: 1rem;
+  background: rgba(15, 23, 42, 0.7);
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+  text-align: left;
+}
+
+.hero-kicker {
+  margin: 0;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.hero-slide-content h2 {
+  margin: 0.3rem 0 0;
+  max-width: unset;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+}
+
+.hero-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.hero-dots {
+  display: inline-flex;
+  gap: 0.45rem;
+}
+
+.hero-dot {
+  min-width: 0;
+  width: 10px;
+  height: 10px;
+  margin: 0;
+  padding: 0;
+  border-radius: 999px;
+  border: 0;
+  background: #cbd5e1;
+}
+
+.hero-dot.is-active {
+  background: var(--primary);
+}
+
 .section-head h2,
 .sironi-specials h2,
 .pauls-cafe-specials h2 {
@@ -321,5 +403,17 @@ footer {
   .topbar nav a {
     flex: 1 1 auto;
     text-align: center;
+  }
+
+  .hero-slides,
+  .hero-slide img {
+    min-height: 280px;
+    height: 280px;
+  }
+
+  .hero-controls {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.7rem;
   }
 }
