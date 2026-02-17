@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Your Cart</h1>
+    </header>
+
+    <section class="cart-section">
+        <div id="cart-items"></div>
+        <button onclick="checkout()"><a href="checkout.html" target="_blank">Proceed to Checkout<a></button>
+    </section>
+
+    <script src="../assets/js/cart.js"></script>
+    <script>
+       displayCartItems();
+    </script>
+</body>
+</html>
