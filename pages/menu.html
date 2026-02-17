@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">   
+
+    <title>Dynamic Menu</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>   
+
+<body>
+    <header>
+        <h1>Sironi Menu</h1>
+    </header>
+
+    <section class="menu-section">
+        <div id="menu-items">
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="../assets/images/pasta and red sauce.jpg" alt="Dish 1">
+                    <div class="menu-details">
+                        <h3>Pasta and red sauce</h3>
+                        <p class="price">Kes 300</p>
+                        <p class="availability" style="color: green;">Available</p>
+                        <textarea placeholder="Special requests (e.g., extra cheese)"></textarea>
+                        <button onclick="addToCart('Pasta and red sauce', 'Kes 300')">Order Now</button>
+                    </div>
+                </div>
+                 </div>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="../assets/images/fried.jpg" alt="Dish 1">
+                    <div class="menu-details">
+                        <h3>ion</h3>
+                        <p class="price">Kes 150</p>
+                        <p class="availability" style="color: green;">Available</p>
+                        <textarea placeholder="Special requests (e.g., extra cheese)"></textarea>
+                        <button onclick="window.location.href='cart.html'" target="_blank">Order Now</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-grid">
+                <div class="menu-item">
+                    <img src="../assets/images/fries.jpg" alt="Dish 1">
+                    <div class="menu-details">
+                        <h3>fries</h3>
+                        <p class="price">Kes 150</p>
+                        <p class="availability" style="color: red;">Available</p>
+                        <textarea placeholder="Special requests (e.g., extra cheese)"></textarea>
+                        <button onclick="window.location.href='menu.html'" target="_blank">Order Now</button>
+                    </div>
+                </div>
+                 </div>
+    </section>
+
+    <script src="../assets/js/menu.js"></script>
+    <script src="../assets/js/cart.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Paul's caffe Menu</h1>
+    </header>
+    
+    <section class="menu-section">
+        <!-- Menu Item 1 -->
+         <div class="menu-grid">
+        <div class="menu-item">
+            <img src="../assets/images/fries.jpg" alt="Dish 1">
+            <div class="menu-details">
+                <h3>fries</h3>
+                <p class="price">Kes 150</p>
+                <p class="availability" style="color: green;">Available</p>
+                <textarea placeholder="Special requests (e.g., extra cheese)"></textarea>
+                <button onclick="addToCart('fries kes 150')"><a href="cart.html" target="_blank">Order Now</a></button>
+            </div>
+        </div>
+         </div>
+        
+        <!-- Menu Item 2 -->
+        <div class="menu-grid">
+        <div class="menu-item">
+            <img src="../assets/images/fried noodles.jpg" alt="Dish 2">
+            <div class="menu-details">
+                <h3>Fried Noodles</h3>
+                <p class="price">Kes 300</p>
+                <p class="availability" style="color: red;">Not Available</p>
+                <textarea placeholder="Special requests (e.g., no onions)"></textarea>
+                <button onclick="addToCart('Fried Noodles')" disabled>Order Now</button>
+            </div>
+        </div>
+        </div>
+        
+        <!-- Menu Item 3 -->
+        <div class="menu-grid">
+        <div class="menu-item">
+            <img src="../assets/images/fried rice.jpg" alt="Dish 3">
+            <div class="menu-details">
+                <h3>Herb-Fried Rice</h3>
+                <p class="price">Kes 200</p>
+                <p class="availability" style="color: green;">Available</p>
+                <textarea placeholder="Special requests (e.g., gluten-free)"></textarea>
+                <button onclick="addToCart('Fried Rice kes 150')"></button><a href="cart.html"></a>>Order Now</button>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <script src="../assets/js/script.js"></script>
+    <script src="../assets/js/cart.js"></script>
+</body>
+</html>
