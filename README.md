@@ -1,24 +1,34 @@
 # flask-meal-system
 
+A meal ordering demo with a modernized web UI and a consolidated Flask backend API.
+
 ## Repository Organization
 
-The repository is organized by concern:
+- `pages/` – Front-end HTML pages (`index`, `menu`, `cart`, `admin`)
+- `assets/css/` – Shared responsive styles
+- `assets/js/` – Client-side app logic for menu, cart, admin flows
+- `services/app.py` – Primary Flask server (serves UI + REST API)
+- `services/` – Legacy microservice files kept for reference
+- `database/` – SQL scripts and generated SQLite database (`meal_system.db`)
 
-- `pages/` – Front-end HTML pages and navigation entry points
-- `assets/css/` – Front-end stylesheets
-- `assets/js/` – Front-end JavaScript and TypeScript files
-- `assets/images/` – Image assets used by the UI
-- `assets/archive/` – Archived static bundles (for example `images.zip`)
-- `services/` – Flask microservices (`menu`, `cart`, `notifications`, `admin`)
-- `database/` – SQL schema and data scripts
-
-## Running services
-
-Each service can be started independently, for example:
+## Run the application
 
 ```bash
-python services/menu.py
-python services/cart.py
-python services/notifications.py
-python services/admin.py
+python services/app.py
 ```
+
+Then open:
+
+- `http://localhost:5000/` – Landing page
+- `http://localhost:5000/pages/menu.html` – Menu page
+- `http://localhost:5000/pages/cart.html` – Cart/checkout
+- `http://localhost:5000/pages/admin.html` – Admin page
+
+## API Overview
+
+- `GET /api/health` – API health check
+- `GET /api/menu` – List menu items
+- `POST /api/menu` – Create menu item (requires `X-Admin-Token` header)
+- `POST /api/orders` – Submit an order from cart items
+
+Default admin token: `dev-admin-token` (override with `MEAL_ADMIN_TOKEN`).

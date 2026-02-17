@@ -1,220 +1,137 @@
+:root {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --primary: #2952ff;
+  --primary-2: #1838c9;
+  --text: #1d2440;
+  --muted: #69708f;
+  --success: #0a9f63;
+  --danger: #d63939;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #f6f8ff 0%, #f3f5fb 100%);
 }
 
-/* Header styling */
-header {
-  background-color: azure; /* Background color */
-  padding: 20px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect */
-}
+a { color: inherit; text-decoration: none; }
 
-.logo-container {
-  display: flex;
-  text-align: center;
-  align-items: center;
-}
-
-.logo {
-  width: 50px; /* Adjust the logo size as needed */
-  align-items: center;
-  margin-right: 10px;
-}
-
-nav {
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e4e8f3;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(6px);
 }
 
-nav a {
-  color: #333;
-  text-decoration: none;
-  margin-right: 20px;   
-
+.topbar nav { display: flex; gap: 1rem; }
+.topbar nav a {
+  padding: 0.5rem 0.8rem;
+  border-radius: 10px;
+  color: var(--muted);
+}
+.topbar nav a.active,
+.topbar nav a:hover {
+  background: #eaf0ff;
+  color: var(--primary-2);
 }
 
-nav a:hover {
-  text-decoration: underline;
+.container {
+  width: min(1100px, 92vw);
+  margin: 1.5rem auto 3rem;
 }
 
-.social-links {
-  display: flex;
-}
+.narrow { width: min(680px, 92vw); }
 
-.social-links a {
-  margin-right: 10px;
-}
+.section-head h2 { margin: 0; }
+.section-head p { color: var(--muted); margin-top: 0.5rem; }
 
-.social-links img {
-  width: 20px; /* Adjust the social icon size as needed */
-}
-
-.login-btn, .order-btn {
-  padding: 10px 20px;
-  background-color: #333;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.login-btn:hover, .order-btn:hover {
-  background-color: #555;
-}
-
-/* Hero Section Styles */
-.hero {
-    background-image: url('Screenshot (17).png');
-    background-size: cover;
-    background-position: center; /* Center the background image */
-    color: white;
-    padding: 50px 0;
-    text-align: center;
-    height: 100vh; /* Set the height to full viewport height */
-    display: flex; /* Use flexbox for vertical centering */
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  
-/* Sironi Restaurant Specials Section */
-.sironi-specials {
-  background-color: white;
-  padding: 40px 0;
-  text-align: center;
-}
-
-.sironi-specials-container {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.sironi-special {
-  text-align: center;
-  margin: 10px;
-}
-
-.sironi-special img {
-  width: 100%;
-  height: auto;
-}
-
-/* Paul's Café Specials Section */
-.pauls-cafe-specials {
-  background-color: azure;
-  padding: 40px 0;
-  text-align: center;
-}
-
-.pauls-cafe-specials-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-
-.pauls-cafe-special-desc,
-.pauls-cafe-special-img {
-  flex: 0 0 50%;
-  margin: 10px;
-  text-align: center;
-}
-
-.pauls-cafe-special-img img {
-  width: 100%;
-  height: auto;
-}
-
-/* Shared Styles */
-.view-menu-btn {
-  margin-top: 40px;
-  padding: 15px 30px;
-  background-color: green;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s ease-in-out;
-}
-
-.view-menu-btn:hover {
-  background-color: #00FF00;
-}
-
-.menu-grid {
+.card-grid {
+  margin-top: 1rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(245px, 1fr));
+  gap: 1rem;
 }
 
-.menu-item {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  padding: 20px;
-  text-align: center;
-  background-color: #f8f8f8; /* Add a light background color */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(30, 45, 90, 0.08);
+  border: 1px solid #e8ecf7;
 }
-
-.menu-item img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.menu-item h3 {
-  font-size: 18px;
-  margin-bottom: 5px;
-}
-
-.menu-item .price {
-  font-size: 16px;
-  color: #666;
-}
-
-.menu-item .availability {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.menu-item textarea {
+.card img {
   width: 100%;
-  padding: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  resize: vertical;
+  height: 160px;
+  object-fit: cover;
+}
+.card-body { padding: 0.9rem; }
+.card h3 { margin: 0.2rem 0; }
+.muted { color: var(--muted); }
+.price { font-weight: 700; margin: 0.5rem 0; }
+
+textarea, input {
+  width: 100%;
+  border: 1px solid #d8dff2;
+  border-radius: 10px;
+  padding: 0.65rem 0.75rem;
+  font: inherit;
+  margin-top: 0.45rem;
 }
 
-.menu-item button {
-  background-color: #007bff;
+button {
+  margin-top: 0.6rem;
+  width: 100%;
+  background: var(--primary);
   color: white;
   border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
+  border-radius: 10px;
+  padding: 0.7rem;
+  font-weight: 600;
   cursor: pointer;
-  font-size: 14px;
-  margin-top: 10px;
+}
+button:hover { background: var(--primary-2); }
+
+.cart-list { display: grid; gap: 0.8rem; }
+.cart-item {
+  background: var(--surface);
+  border: 1px solid #e8ecf7;
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.menu-item button:hover {
-  background-color: #0062cc;
+.inline-actions { display: flex; align-items: center; gap: 0.4rem; }
+.inline-actions button {
+  width: auto;
+  margin: 0;
+  padding: 0.35rem 0.6rem;
 }
 
-/* Footer Section */
-footer {
-    background-color: #333;
-    color: white;
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
+.checkout-panel, .panel-form {
+  margin-top: 1rem;
+  background: var(--surface);
+  border: 1px solid #e8ecf7;
+  border-radius: var(--radius);
+  padding: 1rem;
 }
 
-.footer-logo img {
-    height: 50px;
+.status-text { min-height: 1.4rem; font-weight: 600; }
+.status-success { color: var(--success); }
+.status-error { color: var(--danger); }
+
+.hero, .sironi-specials, .pauls-cafe-specials, footer {
+  width: min(1100px, 92vw);
+  margin: 1rem auto;
 }

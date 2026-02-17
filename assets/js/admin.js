@@ -1,26 +1,38 @@
-// admin.js
-document.getElementById('addItemForm').addEventListener('submit', function(event) {
-    event.preventDefault();
+const ADMIN_FORM = document.getElementById('addItemForm');
+const ADMIN_STATUS = document.getElementById('admin-status');
 
-    const itemName = document.getElementById('itemName').value;
-    const price = document.getElementById('price').value;
-    const description = document.getElementById('description').value;
+function setAdminStatus(message, isError = false) {
+  ADMIN_STATUS.textContent = message;
+  ADMIN_STATUS.className = `status-text ${isError ? 'status-error' : 'status-success'}`;
+}
 
-    fetch('http://localhost:5000/admin/add-item', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ itemName, price, description })
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert('Item added successfully');
-            // Optionally clear the form or display the new item
-        } else {
-            alert('Failed to add item: ' + data.message);
-        }
-    })
-    .catch(error => console.error('Error:', error));
+ADMIN_FORM?.addEventListener('submit', async (event) => {
+  event.preventDefault();
+
+  const payload = {
+    name: document.getElementById('itemName').value.trim(),
+    description: document.getElementById('description').value.trim(),
+    price: Number(document.getElementById('price').value),
+    imageUrl: document.getElementById('imageUrl').value.trim(),
+    isAvailable: true,
+  };
+
+  try {
+    setAdminStatus('Saving menu item...');
+    const response = await fetch('/api/menu', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Admin-Token': document.getElementById('token').value.trim(),
+      },
+      body: JSON.stringify(payload),
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || 'Failed to create item');
+
+    ADMIN_FORM.reset();
+    setAdminStatus(`Item added successfully (id: ${data.id}).`);
+  } catch (error) {
+    setAdminStatus(error.message, true);
+  }
 });
