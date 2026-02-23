@@ -1,12 +1,12 @@
 # flask-meal-system
 
-A meal ordering demo with a modernized web UI and a consolidated Flask backend API.
+A meal ordering demo with a React + Tailwind front-end and a consolidated Flask backend API.
 
 ## Repository Organization
 
-- `pages/` – Front-end HTML pages (`index`, `menu`, `cart`, `admin`)
-- `assets/css/` – Shared responsive styles
-- `assets/js/` – Client-side app logic for menu, cart, admin flows
+- `pages/` – Entry HTML pages that mount the React app (`index`, `menu`, `cart`, `admin`)
+- `assets/js/react-app.js` – Shared React application for all pages
+- `assets/data/home-content.json` – JSON content source for landing page featured items
 - `services/app.py` – Primary Flask server (serves UI + REST API)
 - `services/` – Legacy microservice files kept for reference
 - `database/` – SQL scripts and generated SQLite database (`meal_system.db`)

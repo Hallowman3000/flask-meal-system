@@ -4,42 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Hub | Cart</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header class="topbar">
-        <h1>Meal Hub</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="cart.html" class="active">Cart</a>
-            <a href="admin.html">Admin</a>
-        </nav>
-    </header>
+<body class="bg-slate-50">
+    <div id="app" data-page="cart"></div>
 
-    <main class="container">
-        <section class="section-head">
-            <h2>Your cart</h2>
-            <p>Review items, update quantity, and place your order.</p>
-        </section>
-
-        <section id="cart-items" class="cart-list"></section>
-
-        <section class="checkout-panel">
-            <h3>Checkout</h3>
-            <form id="checkout-form">
-                <label for="customerName">Name</label>
-                <input id="customerName" required placeholder="Jane Doe">
-
-                <label for="customerEmail">Email</label>
-                <input id="customerEmail" type="email" required placeholder="jane@example.com">
-
-                <button type="submit">Place Order</button>
-            </form>
-            <p id="checkout-status" class="status-text"></p>
-        </section>
-    </main>
-
-    <script src="../assets/js/cart.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="../assets/js/react-app.js"></script>
 </body>
 </html>
