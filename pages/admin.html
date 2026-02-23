@@ -4,47 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Hub | Admin</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <header class="topbar">
-        <h1>Meal Hub</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="menu.html">Menu</a>
-            <a href="cart.html">Cart</a>
-            <a href="admin.html" class="active">Admin</a>
-        </nav>
-    </header>
+<body class="bg-slate-50">
+    <div id="app" data-page="admin"></div>
 
-    <main class="container narrow">
-        <section class="section-head">
-            <h2>Admin panel</h2>
-            <p>Add menu items using token-protected API endpoint.</p>
-        </section>
-
-        <form id="addItemForm" class="panel-form">
-            <label for="token">Admin token</label>
-            <input type="password" id="token" placeholder="dev-admin-token" required>
-
-            <label for="itemName">Item name</label>
-            <input type="text" id="itemName" required>
-
-            <label for="price">Price (KES)</label>
-            <input type="number" id="price" min="0" step="0.01" required>
-
-            <label for="description">Description</label>
-            <textarea id="description" rows="4" required></textarea>
-
-            <label for="imageUrl">Image path</label>
-            <input type="text" id="imageUrl" placeholder="../assets/images/fries.jpg">
-
-            <button type="submit">Add item</button>
-        </form>
-
-        <p id="admin-status" class="status-text"></p>
-    </main>
-
-    <script src="../assets/js/admin.js"></script>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="../assets/js/react-app.js"></script>
 </body>
 </html>

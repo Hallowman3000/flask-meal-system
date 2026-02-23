@@ -1,0 +1,21 @@
+{
+  "headline": "Daily specials delivered fresh",
+  "subheadline": "Order from a modern React + Tailwind powered menu connected to the Flask API.",
+  "featuredItems": [
+    {
+      "title": "Pasta Pomodoro",
+      "description": "Fresh pasta in rich tomato sauce.",
+      "image": "../assets/images/pasta and red sauce.jpg"
+    },
+    {
+      "title": "Fried Chicken",
+      "description": "Crispy seasoned chicken served hot.",
+      "image": "../assets/images/chicken.jpg"
+    },
+    {
+      "title": "Loaded Fries",
+      "description": "Golden fries with house seasoning.",
+      "image": "../assets/images/fries.jpg"
+    }
+  ]
+}

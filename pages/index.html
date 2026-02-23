@@ -4,101 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Hub</title>
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <!-- Header Section -->
-    <header class="topbar">
-        <h1 class="brand-title">Meal Hub</h1>
-        <nav>
-            <a href='index.html' class='active'>Home</a>
-            <a href='menu.html'>Menu</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <div class="social-links">
-                <a href="#"><img src="../assets/images/twitter.png" alt="Twitter"></a>
-                <a href="#"><img src="../assets/images/instagram.png" alt="Instagram"></a>
-                <a href="#"><img src="../assets/images/facebook.png" alt="Facebook"></a>
-            </div>
-            <a href='cart.html'>Cart</a>
-            <a href='admin.html'>Admin</a>
-        </nav>
-    </header>
-    <!-- Hero Section -->
-    <section class="hero hero-carousel" aria-label="Daily Specials at Sironi Restaurant">
-        <div class="hero-slides" role="region" aria-live="polite">
-            <article class="hero-slide is-active">
-                <img src="../assets/images/Screenshot (18).png" alt="Delicious pasta with homemade sauce.">
-                <div class="hero-slide-content">
-                    <p class="hero-kicker">Daily Specials at Sironi Restaurant</p>
-                    <h2>Delicious pasta with homemade sauce.</h2>
-                </div>
-            </article>
-            <article class="hero-slide">
-                <img src="../assets/images/Screenshot (14).png" alt="Grilled salmon with fresh herbs.">
-                <div class="hero-slide-content">
-                    <p class="hero-kicker">Daily Specials at Sironi Restaurant</p>
-                    <h2>Grilled salmon with fresh herbs.</h2>
-                </div>
-            </article>
-            <article class="hero-slide">
-                <img src="../assets/images/Screenshot (16).png" alt="Classic Biriyani Rice.">
-                <div class="hero-slide-content">
-                    <p class="hero-kicker">Daily Specials at Sironi Restaurant</p>
-                    <h2>Classic Biriyani Rice.</h2>
-                </div>
-            </article>
-        </div>
-        <div class="hero-controls">
-            <div class="hero-dots" aria-hidden="true">
-                <button class="hero-dot is-active" data-slide="0" aria-label="View slide 1"></button>
-                <button class="hero-dot" data-slide="1" aria-label="View slide 2"></button>
-                <button class="hero-dot" data-slide="2" aria-label="View slide 3"></button>
-            </div>
-            <button onclick="window.location.href='menu.html'" class="order-btn">Order Online</button>
-        </div>
-    </section>
-    <section class="sironi-specials">
-        <h2>Daily Specials at Sironi Restaurant</h2>
-        <p class="muted">Now featured as the hero slideshow above.</p>
-        <button onclick="window.location.href='menu.html'" class="view-menu-btn">View Menu</button>
-    </section>
-    
-    <section class="pauls-cafe-specials">
-        <h2>Daily Specials at Paul's Café</h2>
-        <div class="pauls-cafe-specials-container">
-            <div class="pauls-cafe-special-desc">Coffee brewed to perfection.</div>
-            <div class="pauls-cafe-special-img"><img src="../assets/images/Screenshot (19).png" alt="Coffee"></div>
-            <div class="pauls-cafe-special-desc">Freshly baked croissants.</div>
-            <div class="pauls-cafe-special-img"><img src="../assets/images/Screenshot (20).png" alt="Pastry"></div>
-            
-        </div>
-        <button onclick="window.location.href='menu.html'" class="view-menu-btn">View Menu</button>
-    </section>
-    <!-- Footer Section -->
-    <footer>
-        <div class="footer-logo">
-          <img src="../assets/images/Screenshot (21).png" alt="Logo">
-          <p>Your Restaurant Name</p>
-        </div>
-        <nav class="footer-nav">
-          <ul>
-            <li><a href="">Home</a></li>
-            <li><a href="">Menu</a></li>
-            <li><a href="">About Us</a></li>
-            <li><a href="">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="footer-social">
-          <a href=""><img src="../assets/images/twitter.png" alt="Twitter"></a>
-          <a href=""><img src="../assets/images/instagram.png" alt="Instagram"></a>
-          <a href=""><img src="../assets/images/facebook.png" alt="Facebook"></a>   
-      
-        </div>
-        <div class="footer-copyright">
-          &copy; 2023 Your Restaurant Name. All Rights Reserved.
-        </div>
-      </footer>
-    <script src="../assets/js/script.js"></script>
+<body class="bg-slate-50">
+    <div id="app" data-page="home"></div>
+
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" src="../assets/js/react-app.js"></script>
 </body>
 </html>
