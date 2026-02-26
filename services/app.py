@@ -103,6 +103,20 @@ def health() -> Any:
     return jsonify({"status": "ok", "database": str(DB_PATH)})
 
 
+@app.post("/api/login")
+def login() -> Any:
+    data, error = parse_json(["username", "password"])
+    if error:
+        return jsonify({"success": False, "message": error}), 400
+
+    username = str(data["username"]).strip()
+    password = str(data["password"])
+    if not username or not password:
+        return jsonify({"success": False, "message": "Username and password are required"}), 400
+
+    return jsonify({"success": True, "message": "Login successful", "username": username})
+
+
 @app.get("/api/menu")
 def get_menu() -> Any:
     with get_db_connection() as conn:
