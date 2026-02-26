@@ -1,24 +1,28 @@
-document.getElementById('loginForm').addEventListener('submit', function(event) {
+const loginForm = document.getElementById('loginForm');
+
+loginForm?.addEventListener('submit', async (event) => {
   event.preventDefault();
 
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+  const username = document.getElementById('username')?.value?.trim() || '';
+  const password = document.getElementById('password')?.value || '';
 
-  fetch('http://localhost:5004/login', {
+  try {
+    const response = await fetch('/api/login', {
       method: 'POST',
       headers: {
-          'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ username, password })
-  })
-  .then(response => response.json())
-  .then(data => {
-      if (data.success) {
-          alert("Login successful!");
-          window.location.href = "home.html"; // Redirect after successful login
-      } else {
-          alert("Login failed: " + data.message);
-      }
-  })
-  .catch(error => console.error('Error:', error));
+      body: JSON.stringify({ username, password }),
+    });
+
+    const data = await response.json();
+    if (!response.ok || !data.success) {
+      throw new Error(data.message || 'Login failed');
+    }
+
+    alert('Login successful!');
+    window.location.href = '/pages/index.html';
+  } catch (error) {
+    alert(`Login failed: ${error.message}`);
+  }
 });
