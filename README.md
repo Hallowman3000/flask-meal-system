@@ -5,7 +5,9 @@ A meal ordering demo with a React + Tailwind front-end and a consolidated Flask 
 ## Repository Organization
 
 - `pages/` – Entry HTML pages that mount the React app (`index`, `menu`, `cart`, `admin`)
-- `assets/js/react-app.js` – Shared React application for all pages
+- `assets/js/react-app.jsx` – Vite source entry for the shared React application
+- `assets/js/react-app.js` – Legacy Babel-compatible fallback build
+- `assets/dist/react-app.bundle.js` – Vite production output (generated)
 - `assets/data/home-content.json` – JSON content source for landing page featured items
 - `services/app.py` – Primary Flask server (serves UI + REST API)
 - `services/` – Legacy microservice files kept for reference
@@ -32,3 +34,14 @@ Then open:
 - `POST /api/orders` – Submit an order from cart items
 
 Default admin token: `dev-admin-token` (override with `MEAL_ADMIN_TOKEN`).
+
+## Front-end build (Vite)
+
+Install dependencies and build the production bundle:
+
+```bash
+npm install
+npm run build
+```
+
+The pages first try loading `/assets/dist/react-app.bundle.js` (Vite output). If it is not present, they automatically fall back to the legacy CDN + Babel loader so the app still works in constrained environments.
