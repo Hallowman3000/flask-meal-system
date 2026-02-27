@@ -6,7 +6,7 @@ A meal ordering demo with a React + Tailwind front-end and a consolidated Flask 
 
 - `pages/` – Entry HTML pages that mount the React app (`index`, `menu`, `cart`, `admin`)
 - `assets/js/react-app.jsx` – Vite source entry for the shared React application
-- `assets/js/react-app.js` – Legacy Babel-compatible fallback build
+- `assets/js/react-app.js` – Legacy non-bundled React source retained for reference
 - `assets/dist/react-app.bundle.js` – Vite production output (generated)
 - `assets/data/home-content.json` – JSON content source for landing page featured items
 - `services/app.py` – Primary Flask server (serves UI + REST API)
@@ -44,4 +44,17 @@ npm install
 npm run build
 ```
 
-The pages first try loading `/assets/dist/react-app.bundle.js` (Vite output). If it is not present, they automatically fall back to the legacy CDN + Babel loader so the app still works in constrained environments.
+The pages now load only the Vite bundle (`assets/dist/react-app.bundle.js`). Run the app through `python services/app.py` (or any local HTTP server) instead of opening HTML files with `file://` to avoid browser module/CORS issues.
+
+
+## Troubleshooting browser console warnings
+
+If you open `pages/*.html` directly from disk, the browser can show warnings/errors about React DevTools, Babel, or blocked module scripts. Use this flow instead:
+
+```bash
+npm install
+npm run build
+python services/app.py
+```
+
+Then visit `http://localhost:5000/`.

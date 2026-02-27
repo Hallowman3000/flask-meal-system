@@ -4,39 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meal Hub</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
 </head>
 <body class="bg-slate-50">
     <div id="app" data-page="home"></div>
 
+    <script type="module" src="../assets/dist/react-app.bundle.js"></script>
     <script>
-      (function loadApp() {
-        var appBundle = document.createElement('script');
-        appBundle.type = 'module';
-        appBundle.src = '/assets/dist/react-app.bundle.js';
-        appBundle.onerror = function () {
-          var react = document.createElement('script');
-          react.crossOrigin = '';
-          react.src = 'https://unpkg.com/react@18/umd/react.production.min.js';
-          document.body.appendChild(react);
-
-          var reactDom = document.createElement('script');
-          reactDom.crossOrigin = '';
-          reactDom.src = 'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js';
-          document.body.appendChild(reactDom);
-
-          var babel = document.createElement('script');
-          babel.src = 'https://unpkg.com/@babel/standalone/babel.min.js';
-          babel.onload = function () {
-            var legacyApp = document.createElement('script');
-            legacyApp.type = 'text/babel';
-            legacyApp.src = '../assets/js/react-app.js';
-            document.body.appendChild(legacyApp);
-          };
-          document.body.appendChild(babel);
-        };
-        document.body.appendChild(appBundle);
-      })();
+      if (window.location.protocol === 'file:') {
+        console.warn('Running with file:// may block module scripts and API requests. Use python services/app.py and open http://localhost:5000/.');
+      }
     </script>
 </body>
 </html>
