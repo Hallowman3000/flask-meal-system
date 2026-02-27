@@ -1,34 +1,16 @@
-# flask-meal-system
+# React + Vite
 
-A meal ordering demo with a React + Tailwind front-end and a consolidated Flask backend API.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Repository Organization
+Currently, two official plugins are available:
 
-- `pages/` – Entry HTML pages that mount the React app (`index`, `menu`, `cart`, `admin`)
-- `assets/js/react-app.js` – Shared React application for all pages
-- `assets/data/home-content.json` – JSON content source for landing page featured items
-- `services/app.py` – Primary Flask server (serves UI + REST API)
-- `services/` – Legacy microservice files kept for reference
-- `database/` – SQL scripts and generated SQLite database (`meal_system.db`)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Run the application
+## React Compiler
 
-```bash
-python services/app.py
-```
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Then open:
+## Expanding the ESLint configuration
 
-- `http://localhost:5000/` – Landing page
-- `http://localhost:5000/pages/menu.html` – Menu page
-- `http://localhost:5000/pages/cart.html` – Cart/checkout
-- `http://localhost:5000/pages/admin.html` – Admin page
-
-## API Overview
-
-- `GET /api/health` – API health check
-- `GET /api/menu` – List menu items
-- `POST /api/menu` – Create menu item (requires `X-Admin-Token` header)
-- `POST /api/orders` – Submit an order from cart items
-
-Default admin token: `dev-admin-token` (override with `MEAL_ADMIN_TOKEN`).
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
