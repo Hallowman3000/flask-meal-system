@@ -1,0 +1,21 @@
+{
+  "headline": "Fresh Meals Delivered Fast",
+  "subheadline": "Explore chef-crafted favorites and place your order in a few clicks.",
+  "featuredItems": [
+    {
+      "title": "Pasta Pomodoro",
+      "description": "Rich tomato sauce, basil, and perfectly cooked pasta.",
+      "image": "https://images.unsplash.com/photo-1621996346565-e3dbc353d2e5?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "title": "Crispy Fried Chicken",
+      "description": "Crunchy, juicy chicken made with our signature seasoning.",
+      "image": "https://images.unsplash.com/photo-1562967914-608f82629710?auto=format&fit=crop&w=1200&q=80"
+    },
+    {
+      "title": "Seasoned Loaded Fries",
+      "description": "Golden fries tossed with herbs and house spices.",
+      "image": "https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=1200&q=80"
+    }
+  ]
+}
