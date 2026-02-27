@@ -9,9 +9,34 @@
 <body class="bg-slate-50">
     <div id="app" data-page="menu"></div>
 
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <script type="text/babel" src="../assets/js/react-app.js"></script>
+    <script>
+      (function loadApp() {
+        var appBundle = document.createElement('script');
+        appBundle.type = 'module';
+        appBundle.src = '/assets/dist/react-app.bundle.js';
+        appBundle.onerror = function () {
+          var react = document.createElement('script');
+          react.crossOrigin = '';
+          react.src = 'https://unpkg.com/react@18/umd/react.production.min.js';
+          document.body.appendChild(react);
+
+          var reactDom = document.createElement('script');
+          reactDom.crossOrigin = '';
+          reactDom.src = 'https://unpkg.com/react-dom@18/umd/react-dom.production.min.js';
+          document.body.appendChild(reactDom);
+
+          var babel = document.createElement('script');
+          babel.src = 'https://unpkg.com/@babel/standalone/babel.min.js';
+          babel.onload = function () {
+            var legacyApp = document.createElement('script');
+            legacyApp.type = 'text/babel';
+            legacyApp.src = '../assets/js/react-app.js';
+            document.body.appendChild(legacyApp);
+          };
+          document.body.appendChild(babel);
+        };
+        document.body.appendChild(appBundle);
+      })();
+    </script>
 </body>
 </html>
