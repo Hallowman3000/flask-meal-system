@@ -1,16 +1,41 @@
-# React + Vite
+# Meal Hub (Next.js)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project has been fully refactored to **React + Next.js** and now runs as a single full-stack application.
 
-Currently, two official plugins are available:
+## What changed
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Frontend pages now use the Next.js App Router (`app/` directory).
+- Backend Flask services were replaced by Next.js API routes under `app/api`.
+- Shared state helpers and server-side storage helpers are in `lib/`.
+- Static images and JSON content are served from `public/assets`.
 
-## React Compiler
+## Routes
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `/` home
+- `/menu`
+- `/cart`
+- `/admin`
+- `/login`
+- `/register`
 
-## Expanding the ESLint configuration
+API routes:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- `GET /api/health`
+- `POST /api/login`
+- `GET /api/menu`
+- `POST /api/menu` (requires `X-Admin-Token`)
+- `POST /api/orders`
+
+## Development
+
+```bash
+npm install
+npm run dev
+```
+
+Admin token defaults to `admin-secret-token` and can be changed with `ADMIN_TOKEN`.
+
+
+## Asset policy
+
+This repository avoids committing binary assets. Image references in seed/content data use external HTTPS URLs.

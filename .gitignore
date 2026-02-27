@@ -27,3 +27,14 @@ venv/
 Lib/
 Scripts/
 pyvenv.cfg
+
+# Binary assets are intentionally excluded (repository policy)
+assets/images/
+public/assets/images/
+assets/archive/
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.zip
