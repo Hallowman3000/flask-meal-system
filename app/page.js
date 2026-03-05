@@ -1,5 +1,6 @@
 import { promises as fs } from 'fs';
 import path from 'path';
+import Link from 'next/link';
 
 async function getHomeContent() {
   try {
@@ -15,21 +16,49 @@ export default async function HomePage() {
   const content = await getHomeContent();
 
   return (
-    <>
-      <section className="hero">
-        <p>Meal ordering simplified</p>
-        <h1>{content.headline}</h1>
-        <p>{content.subheadline}</p>
+    <div className="home-figma">
+      <section className="figma-hero card">
+        <div className="figma-hero-content">
+          <p className="figma-kicker">Figma-inspired meal delivery template</p>
+          <h1>{content.headline}</h1>
+          <p className="figma-subheadline">{content.subheadline}</p>
+          <div className="figma-actions">
+            <Link href="/menu" className="figma-btn-primary">
+              Browse menu
+            </Link>
+            <Link href="/register" className="figma-btn-secondary">
+              Create account
+            </Link>
+          </div>
+        </div>
+
+        <div className="figma-highlight">
+          <h2>Why customers choose Meal Hub</h2>
+          <ul>
+            <li>Curated dishes from local chefs</li>
+            <li>Real-time order updates</li>
+            <li>Fast checkout and secure payment flow</li>
+          </ul>
+        </div>
       </section>
-      <section className="grid grid-3" style={{ marginTop: '1rem' }}>
-        {content.featuredItems?.map((item) => (
-          <article className="card" key={item.title}>
-            <img className="thumb" src={item.image} alt={item.title} />
-            <h3>{item.title}</h3>
-            <p className="muted">{item.description}</p>
-          </article>
-        ))}
+
+      <section className="figma-featured">
+        <div className="figma-section-heading">
+          <p>Featured right now</p>
+          <h2>Popular picks from our kitchen</h2>
+        </div>
+        <div className="grid grid-3">
+          {content.featuredItems?.map((item) => (
+            <article className="card figma-item" key={item.title}>
+              <img className="thumb" src={item.image} alt={item.title} />
+              <div className="figma-item-content">
+                <h3>{item.title}</h3>
+                <p className="muted">{item.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
-    </>
+    </div>
   );
 }

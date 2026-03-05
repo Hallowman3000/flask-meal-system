@@ -27,3 +27,114 @@ button:disabled { background:#94a3b8; }
 input, textarea { width:100%; border:1px solid #cbd5e1; border-radius:.45rem; padding:.55rem; }
 .muted { color:#64748b; }
 .row { display:flex; justify-content:space-between; gap:1rem; align-items:start; }
+
+.home-figma {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.figma-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.5rem;
+  border: 0;
+  background: linear-gradient(135deg, #111827 0%, #1f2937 55%, #0f766e 100%);
+  color: #f8fafc;
+}
+
+.figma-kicker {
+  margin: 0;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #99f6e4;
+}
+
+.figma-hero h1 {
+  margin: 0.6rem 0;
+  font-size: clamp(1.8rem, 3.2vw, 2.7rem);
+}
+
+.figma-subheadline {
+  margin: 0;
+  color: #cbd5e1;
+  max-width: 42ch;
+}
+
+.figma-actions {
+  margin-top: 1.3rem;
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.figma-btn-primary,
+.figma-btn-secondary {
+  text-decoration: none;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.figma-btn-primary {
+  background: #14b8a6;
+  color: #042f2e;
+}
+
+.figma-btn-secondary {
+  border: 1px solid #67e8f9;
+  color: #ecfeff;
+}
+
+.figma-highlight {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+
+.figma-highlight h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.figma-highlight ul {
+  margin: 0.8rem 0 0;
+  padding-left: 1.1rem;
+  color: #dbeafe;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.figma-section-heading p {
+  margin: 0;
+  color: #0f766e;
+  text-transform: uppercase;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.figma-section-heading h2 {
+  margin: 0.4rem 0 0;
+}
+
+.figma-item {
+  padding: 0.7rem;
+  box-shadow: 0 10px 30px -20px rgba(15, 23, 42, 0.5);
+}
+
+.figma-item-content {
+  padding: 0.3rem 0.4rem 0.6rem;
+}
+
+.figma-item h3 {
+  margin-bottom: 0.35rem;
+}
+
+@media (max-width: 900px) {
+  .figma-hero {
+    grid-template-columns: 1fr;
+  }
+}
